@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>ISSC</title>
+    
+    
+    
+    
+        <link rel="stylesheet" href="css/style.css">
+
+    
+    
+    
+  </head>
+
+  <body>
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:700,600' rel='stylesheet' type='text/css'>
+	<form name= "myForm" action="update.php" onsubmit="return Validateform()"  method="post">
+	<div class="box">
+	</br>
+	<h1>Change Password</h1>
+	</br></br>
+	
+	<input type="text" name="Email"  placeholder="Email" class="email"  required/> </br></br>
+	<input type="password" name="current_password"  placeholder="Current Password" class="email"  required/> </br></br>
+	<input type="password" name="password"  placeholder="New Password" class="email"  required/> </br></br>
+	<input type="password" name="confirm_password"  placeholder="Confirm Password" class="email"  required/> </br></br>
+	
+	<input type="submit" name ="Submit" value="Change Password" class="btn11 btn11-primary btn11-large btn11-block">
+	
+	</div> <!-- End Box -->
+  
+</form>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
+    
+        <script src="js/index.js"></script>
+
+    
+    
+    
+  </body>
+</html>
+
+<script language="javascript">
+	function Validateform() 
+	{
+       
+		var Email = document.forms["myForm"]["Email"].value;
+		var password = document.forms["myForm"]["password"].value;
+		var confirm_password = document.forms["myForm"]["confirm_password"].value;
+		//function validateEmail(Email)
+	//{
+	
+	/*var n1 = new RegExp("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$");	
+	if(!n1.test(Email))
+		return 1;
+	else
+		return 0;
+	}
+
+	if (validateE(Email)) 
+	{
+	 alert(" Email Id is not valid");
+        return false;
+	} */
+	
+	
+		function validatePassword(password)
+		{
+			var pass=new RegExp("^[A-Za-z]+([0-9-])+$");
+			if(!pass.test(password))
+		
+				return 1;
+			else
+				return 0;
+		}
+
+		if (validatePassword(password)) 
+		{
+		 alert("Password must be a combination of Alphanumeric Characters");
+		 return false;
+		}
+	
+		if(password != confirm_password)
+		{
+		 alert("Passwords do not match");
+		return false;
+		}
+	
+	
+}
+</script>

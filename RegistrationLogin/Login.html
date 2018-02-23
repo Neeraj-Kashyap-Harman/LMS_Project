@@ -1,0 +1,65 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="utf-8">
+		<link href="../library/RegistrationFinal/css/style.css" rel='stylesheet' type='text/css' />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function 			hideURLbar(){ window.scrollTo(0,1); } 
+		</script>
+		<link href='../library/RegistrationFinal/css/login.css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text.css'/>
+</head>
+<body>
+	<div class="main">
+	<div class="header" >
+	<h3>Login</h3>
+	</div>
+	
+	<ul class="left-form">
+	<form name= "myForm" action="/library/RegistrationFinal/Login.php" onsubmit="return validateForm();"  method="post">
+	<div>
+	<li><input type="E_user" name="E_user" placeholder="Username/Email" style="border:0.5px solid #2e2e2e;" required/></li>
+
+	<li> <input type="password" name="password" placeholder="Password" style="border:0.5px solid #2e2e2e;" required/></li>
+	<a href="forget.html">Forgot Password?</a><br/>
+
+	<input type="submit" name="Submit" value="Login" style="border:0.5px solid #2e2e2e;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="../library/RegistrationFinal/index(1).html"><input type="button" name="Sign_Up" value="Sign Up" style="width: 90px;height: 35px;border:0.5px solid #2e2e2e;"></a>
+	</div>
+	<div class="clear"> </div>
+	</ul>
+	</form>
+			
+		
+			
+</body>
+</html>
+
+<script language="javascript">
+	function validateForm() {
+       
+		var Email = document.forms["myForm"]["Email"].value;
+		
+		function validateEmail(Email)
+	{
+	
+	var n1 = new RegExp("^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$");	
+	if(!n1.test(Email))
+		return 1;
+	else
+		return 0;
+	}
+
+	if (validateName(Email)) 
+	{
+	 alert(" Email Id is not valid");
+        return false;
+	} 
+}
+
+       

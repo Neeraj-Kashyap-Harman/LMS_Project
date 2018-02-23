@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>ISSC</title>
+    
+    
+    
+    
+        <link rel="stylesheet" href="css/style.css">
+
+    
+    
+    
+  </head>
+<head>
+<meta charset="utf-8">
+<title>SIGNING UP FOR ISSC</title>
+<link rel="stylesheet" href="css/jquery-dateui.css">
+<script src="js/jquery-1.10.2.js"></script>
+<script src="js/jquery-ui.js"></script>
+<!--<link rel="stylesheet" href="/resources/demos/style.css"> -->
+<script>
+$(function() {
+$( "#datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
+
+});
+</script>
+</head>
+
+  <body>
+
+    <link href='../library/RegistrationLogin/css/reg.css?family=Open+Sans:700,600' rel='stylesheet' type='text/css'>
+
+    <form name= "myForm" action="insert.php" onsubmit="return validateform()"  method="post">
+	<h1>Welcome to ISSC</h1>
+	<div class="box11">
+	
+	<h3>Select Your Role <font color="red"> * </font>&nbsp;&nbsp;<select name="Role" id="Role" onchange="enabledisabletext()" style="width: 200px;height: 35px" required>
+							<option value=""></option><br>
+							<option value="Student">Student</option><br>
+							<option value="Faculty" >Faculty</option><br>
+							<option value="Staff" >Staff</option><br>
+							<option value="Fellow" >Fellow</option><br>
+						</select><br/><br/></h3>
+
+
+					
+					<li>
+						Name<font color="red"> * </font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="Name" placeholder="Name" class="text" align="left" required /><br/>
+						
+					</li> 
+					<li>
+						Address<font color="red"> * </font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"  name="Address" placeholder="Address" class="text" align="left" required/><br/>
+						
+					</li> 
+					<li>
+						Email Id <font color="red"> * </font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"  name="Email" placeholder="Email" class="text" align="left" required/><br/>
+						
+					</li> 
+					<li>
+						Mobile Number<font color="red"> * </font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="Mobile"  placeholder="Mobile Number" class="text" align="left" required/><br/>
+					</li>
+
+					<li>
+						Username<font color="red"> * </font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"  name="user_name" placeholder="Username" class="text" align="left" required/><br/>
+						
+					</li> 
+
+					
+					<li>
+						Password<font color="red"> * </font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="password"  name="password" placeholder="Password" class="text" align="left" size='15' required/><br/>
+						
+					</li>
+					<li>
+						Confirm Password<font color="red"> * </font>&nbsp;&nbsp;&nbsp;<input type="password"  name="confirm_password" placeholder="confirm password" class="text" required/><br/></br>
+					</li>
+					<li>
+						Gender<font color="red"> * </font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio"  name="gender"  value="male" > Male 
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="gender" value="female"> Female</br></br>
+					</li>
+					<li>
+						Date of Birth<font color="red"> * </font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="text"   name="date" id="datepicker" placeholder="yyyy-mm-dd" class="text" required/><br/>
+					</li>
+
+                                        <li>
+                                              <script>
+                                               function reload()
+                                              {
+                                                img = document.getElementById("capt");
+                                                img.src="captcha.php?rand_number=" + Math.random();
+                                              }
+                                              </script>
+                                              <img src=captcha.php id="capt">&nbsp;&nbsp;
+                                              <img src=refresh.png height=30 width=30 onClick=reload(); value='Reload'>
+                                    
+					      &nbsp;&nbsp; <input type="text"   name="captcha" id="captcha" placeholder="captcha code" class="text" required/><br/>
+                                              
+					</li>
+                                        
+					
+                                        
+					<input type="Submit" name="create_Account" value="Create account" class="btn" >
+					<input type="Reset" name="Reset" value="Reset" id="btn2" >
+					<input type="button" name="Cancel" value="Cancel" onclick="window.location.href='index.html'" id="btn2" ><!-- End Btn -->
+	                                
+					</form>	
+				</ul>
+				
+							
+			
+		</div>
+		</form>
+</body>
+</html>	
+
+	<script language="javascript">
+function validateform() 
+{
+	var Role= document.forms["myForm"]["Role"].value;
+	var Name= document.forms["myForm"]["Name"].value;
+	var Mobile = document.forms["myForm"]["Mobile"].value;
+        var user_name = document.forms["myForm"]["user_name"].value;
+	var password=document.forms["myForm"]["password"].value;
+	var confirm_password= document.forms["myForm"]["confirm_password"].value;
+	var date = document.forms["myForm"]["date"].value;
+        var Email= document.forms["myForm"]["Email"].value;
+        var Address= document.forms["myForm"]["Address"].value;
+
+	function validateName(Name)
+	{
+		var n1 = new RegExp("^[a-z A-Z]+$");	
+		if(!n1.test(Name))
+			return 1;
+		else
+			return 0;
+	}
+
+	if (validateName(Name)) 
+	{
+		alert(" Name not valid");
+		return false;
+	} 
+
+
+	if (isNaN(Address)==false) 
+	{
+		alert("Address can not have only Numbers");
+		return false;
+	}
+
+
+
+	function validateEmail(Email)
+	{
+		 var atpos = Email.indexOf("@");
+                 var dotpos = Email.lastIndexOf(".");
+                 if (atpos<1 || dotpos<atpos+2 || dotpos+2>=Email.length) 
+                 {
+                      return 1;
+                 }
+		else
+			return 0;
+	}
+
+	if (validateEmail(Email)) 
+	{
+		alert("Please enter valid Email");
+		return false;
+	}
+
+
+
+
+
+
+
+
+	function validateMobile(Mobile)
+	{
+
+		var reg = new RegExp("^[7-9][0-9]{9}$");
+		/*
+		   ^     #Match the beginning of the string
+		   [789] #Match a 7, 8 or 9
+		   \d    #Match a digit (0-9 and anything else that is a "digit" in the regex engine)
+		   {9}   #Repeat the previous "\d" 9 times (9 digits)
+		   $     #Match the end of the string
+		 */
+		if(!reg.test(Mobile))
+
+			return 1;
+		else
+			return 0;
+	}
+
+
+
+	if (validateMobile(Mobile)) 
+	{
+		alert(" Mobile number not valid");
+		return false;
+	}
+
+
+	function validatePassword(password)
+	{
+		var pass=new RegExp("^[A-Za-z]+([0-9])+$");
+		if(!pass.test(password))
+
+			return 1;
+		else
+			return 0;
+	}
+
+	if (validatePassword(password)) 
+	{
+		alert("Password must be a combination of Alphanumeric Characters");
+		return false;
+	}
+
+	if(password != confirm_password)
+	{
+		alert("Passwords do not match");
+		return false;
+	}
+
+	// Validates that the input string is a valid date formatted as "yyyy/mm/dd"
+	function isValidDate(date)
+	{			
+		//GETTING THE CURRENT DATE
+		var today = new Date();
+		var dd = today.getDate();
+		var mm = today.getMonth()+1;
+
+		var current_yyyy = today.getFullYear();
+		//document.write(current_yyyy);
+
+
+		var date1=new Date(date); // CREATING DATE OBJECT OF WHAT THE USER HAS ENTERED
+		var entered_yyyy=date1.getFullYear();
+		var entered_dd=date1.getDate();
+		var entered_mm=date1.getMonth()+1;
+		//document.write(entered_yyyy);
+
+		var year_difference = current_yyyy - entered_yyyy;
+		//document.write(year_difference);
+		// First check for the pattern
+		/*var entered_date=new RegExp('^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$');
+		  if(!entered_date.test(date))
+		  {
+		  document.write("Expression working");
+		  return false;
+		  }*/
+		
+		// Check the ranges of month and year
+		if(entered_yyyy < 1940 || entered_yyyy > 3000)
+		{	
+			alert("Entered Year is not acceptable");
+			return 1;
+		}
+
+		if(entered_mm == 0 || entered_mm > 12)
+		{	
+			alert("Entered Month is not Valid");
+			return 1;
+		}
+
+		/*var monthLength = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ];
+
+		// Adjust for leap years
+		if(entered_yyyy % 400 == 0 || (entered_yyyy % 100 != 0 && entered_yyyy % 4 == 0))
+		{
+			monthLength[1] = 29;
+		}
+		// Check the range of the day
+		if(entered_dd > 0 && entered_dd > monthLength[month - 1]);
+		{	
+			alert("Entered Date is not valid");
+			return true;
+		}
+		*/
+		if(year_difference < 20)
+		{
+
+			return 1;
+		}
+		else 
+		{
+			return 0;
+		}
+
+	}
+
+	if(isValidDate(date))
+	{
+		alert("Please Enter valid Birthdate");	
+		return false;
+	}
+/*
+	else
+	{
+		alert("Signing up Succesfull !!!!!!!!!!!!!!!!!!!!!!!");
+		return false;
+	}
+	
+	// Mobile Validation
+
+	// Name validation
+
+*/	
+	if(Name==" " || password==" " || confirm_password==" " || Address==" " || Email==" " || Mobile==" " || Role==" " || user_name==" " )
+	{
+		alert("Please fill all details");
+		return false;
+	}
+
+
+        
+
+}
+</script>
+		

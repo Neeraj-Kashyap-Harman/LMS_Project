@@ -1,0 +1,5 @@
+query
+
+
+ select user_role,AES_DECRYPT(password,'Renuka Baikan') as pwd from users where email='gneha@issc.unipune.ac.in';
+
