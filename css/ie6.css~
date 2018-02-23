@@ -1,0 +1,7 @@
+.play {
+	background-image:none;
+ 	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='css/images/image-hover.png', sizingMethod='image');
+}
+@media screen and (min-width: 728px) { }
+@media screen and (min-width: 1357px) { }
+@media screen and (min-width: 1024px) { }
